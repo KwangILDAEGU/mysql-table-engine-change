@@ -9,7 +9,7 @@ AFTER_ENGINE=$2;
 
 IFS=$'\n' ARRAY=("mysql -u$USER -p$PASSWORD -D$DATABASE -e 'show tables'")
 
-for VALUE in "${ARR[@]}"; do
+for VALUE in "${ARRAY[@]}"; do
     mysql -u$USER -p$PASSWORD -D$DATABASE -e "alter table $PREV_ENGINE engine=$AFTER_ENGINE;";
 
 	if [[ $? == 0 ]]; then
